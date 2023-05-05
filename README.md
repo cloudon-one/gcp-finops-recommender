@@ -1,6 +1,6 @@
-# GCP FinOps automation
+# GCP Recommendations Checker
 
-This Terraform deploys a CloudFunction to use Recommender across the Google Org, Folders and Projects
+This Terraform deploys a CloudFunction to use Recommender API across the GCP Org, Folders and Projects
 
 ## Required Service Account Permission to deploy solution
 
