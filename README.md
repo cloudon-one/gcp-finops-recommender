@@ -2,7 +2,7 @@
 
 This Terraform deploys a CloudFunction to use Recommender across the Google Org, Folders and Projects
 
-## Required Permission to deploy terraform
+## Required Service Account Permission to deploy solution
 
 Organization Admin permission (`roles/resourcemanager.organizationAdmin`) is required for terraform execution.
 
@@ -41,8 +41,8 @@ Organization Admin permission (`roles/resourcemanager.organizationAdmin`) is req
 
 ## WIP
 
-- `datastore collections to store recommendation` - NoSQL DB to collect and store recommendations
-- `resources filters per org_id, folder_id, project_id` - pre-defined serch queries to filter recommendatiojns
+- `datastore collections to store recommendation` - Simple NoSQ Document DB to collect and store recommendations
+- `resources filters per org_id, folder_id, project_id` - pre-defined serch queries to filter recommendations
 
 ## Input Variables
 
@@ -50,7 +50,7 @@ Organization Admin permission (`roles/resourcemanager.organizationAdmin`) is req
 |:--------------------------------|:--------------------------------------------|:-------|:------------------|:---------|
 | organization_id                 | GCP Organization ID                         | string | ""                | yes      |
 | gcp_project                     | GCP Project ID to deploy the Cloud Function | string | ""                | yes      |
-| gcp_region                      | GCP Region to deploy                        | string | "europe-west1"    | yes       |
+| gcp_region                      | GCP Region to deploy                        | string | "us-central1"     | yes      |
 | bucket_name                     | GCS bucket to manage Cloud Function codes   | string | ""                | yes      |
 | slack_webhook_url               | Slack Webhook URL to notify results         | string | ""                | yes      |
 | job_schedule                    | Cron expression for periodic execution      | string | "0 */8* **"       | no       |
@@ -61,9 +61,10 @@ Organization Admin permission (`roles/resourcemanager.organizationAdmin`) is req
 | idle_image_recommender_enabled  | Option to enable Idle SQL Recommender       | string | true              | no       |
 | idle_ip_recommender_enabled     | Option to enable Idle SQL Recommender       | string | true              | no       |
 
-## Autorize to client project
+## Use Service Account to Autorize to client GCP Organization
 
     export CLIENT_ORG_ID = ""
+    export $PROJECT_ID = "" # authorized service account project
 
 ### Add required roles for recommender SA
 
