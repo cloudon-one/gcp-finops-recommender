@@ -1,5 +1,5 @@
 # GCP Recommendations Checker
-
+![enter image description here](https://github.com/cloudon-one/gcp-finops-recommender/blob/main/image_fixed_width.png)
 This Terraform deploys a CloudFunction to use Recommender API across the GCP Org, Folders and Projects
 
 ## Required Service Account Permission to deploy solution
